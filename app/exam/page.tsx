@@ -140,7 +140,7 @@ export default function ExamPage() {
         // Register background sync
         if ("serviceWorker" in navigator && "SyncManager" in window) {
           const reg = await navigator.serviceWorker.ready;
-          await reg.sync.register("sync-answers");
+          await (reg as any).sync.register("sync-answers");
         }
         // Still navigate to requested index
         if (navigateToIndex !== undefined && navigateToIndex < totalQuestions) {
